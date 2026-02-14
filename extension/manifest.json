@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "TailTube",
+  "version": "1.2",
+  "permissions": ["activeTab"],
+  "host_permissions": ["http://{TAILSCALE.IP HERE}:3000/*"],
+  "content_scripts": [
+    {
+      "matches": ["*://*.youtube.com/*"],
+      "js": ["content.js"]
+    }
+  ]
+}
