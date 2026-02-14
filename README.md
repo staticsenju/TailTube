@@ -67,14 +67,14 @@ npm install
 **Configuration:**
 
 1. Open `server.js`.
-2. Update the `app.listen()` IP address at the bottom of the file (e.g., `10.x.x.x`) to match your server's Tailscale IP.
+2. Update the `tIP` IP address at the top of the file (e.g., `10.x.x.x`) to match your server's Tailscale IP.
 
 **Run the Server:**
 Start the server using PM2 to keep it running continuously in the background.
 
 ```bash
 npm install -g pm2
-pm2 start server.js --name tailtube
+pm2 start server.js --name "tailtube"
 pm2 save
 pm2 startup
 
