@@ -46,16 +46,17 @@ app.post('/play', (req, res) => {
 });
 
 app.post('/control', (req, res) => {
-  const { action } = req.body;
+  const { action, time } = req.body;
   console.log(`[CONTROL] Received action: ${action}`);
-  
+
   if (action === 'toggle_pause') sendCmd(['cycle', 'pause']);
   if (action === 'vol_up') sendCmd(['add', 'volume', 10]);
   if (action === 'vol_down') sendCmd(['add', 'volume', -10]);
   if (action === 'seek_forward') sendCmd(['seek', 10]);
   if (action === 'seek_backward') sendCmd(['seek', -10]);
   if (action === 'toggle_mute') sendCmd(['cycle', 'mute']);
-  
+  if (action === 'seek_to' && time !== undefined) sendCmd(['seek', Number(time), 'absolute']);
+
   res.send('Done');
 });
 
